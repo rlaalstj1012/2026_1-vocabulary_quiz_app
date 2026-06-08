@@ -34,6 +34,11 @@ class VocabularyQuizApp:
         self.answer_entry = ttk.Entry(root, font=("NanumGothic", 14))
         self.answer_entry.pack(pady=12, ipadx=6, ipady=4)
 
+        self.answer_entry.bind(
+            "<Return>",
+            lambda event: self.check_current()
+        )
+
         buttons = ttk.Frame(root)
         buttons.pack(pady=6)
         self.check_button = ttk.Button(buttons, text="채점", command=self.check_current)
