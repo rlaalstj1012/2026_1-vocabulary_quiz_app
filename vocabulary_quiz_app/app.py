@@ -61,6 +61,18 @@ class VocabularyQuizApp:
         self.check_button.state(["!disabled"])
         self.answer_entry.focus()
 
+    def shuffle_word(self, word):
+        word_list = list(word)
+        random.shuffle(word_list)
+        return "".join(word_list)
+
+    def set_new_question(self, word):
+        self.current_answer = word
+        shuffled = self.shuffle_word(word)
+
+        print(f"Unscramble the word: {shuffled}")
+
+
     def check_current(self) -> None:
         if self.current is None or self.checked:
             return
